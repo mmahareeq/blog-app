@@ -42,7 +42,7 @@ class PostsController < ApplicationController
         # puts params
         if @post.update(post_params)
             # render json: {message: 'updated post successfully'}, status: 200
-            redirect_to posts_path, notice: 'updated post successfully'
+            redirect_to post_path, notice: 'updated post successfully'
         else
             flash.now[:alert] = 'Please fill in all required fields.'
             render :edit, status: 404
