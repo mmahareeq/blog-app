@@ -1,7 +1,6 @@
 <header class=" d-flex justify-content-end mt-3">
  <div>
    <% if user_signed_in? %>
-     
      <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"btn btn-outline-dark btn-sm"%>
    <% else %> 
     <%= link_to "Sign in", new_user_session_path , class:"btn btn-outline-dark btn-sm"%>

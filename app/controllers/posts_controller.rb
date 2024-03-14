@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
      
     skip_before_action :verify_authenticity_token
-    before_action :authenticate_user!, expecpt: [ :index, :show]
-    before_action :post_find_id, expecpt: [:index, :newm ,:create]
+    before_action :authenticate_user!, except: [ :index, :show]
+    before_action :post_find_id, expecpt: [:index, :new ,:create]
 
     # # disply a list of all posts
     def index 
