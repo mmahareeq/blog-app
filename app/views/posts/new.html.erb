@@ -1,0 +1,35 @@
+
+<h1 class="fs-3">Add New Post</h1>
+<%= form_with(model: @post, local: true) do |form| %>
+    <% if flash.now[:alert] %>
+  <div class="text-danger">
+    <%= flash.now[:alert] %>
+  </div>
+<% end %>
+    <div class="field mb-2">
+      
+      <%= form.label :name, " Name" ,class: "form-label"%>
+      <%= form.text_field :name , class: "form-control", required: true%>
+    </div>
+  
+    <div class="field mb-2">
+      <%= form.label :content ,"Content", class: "form-label"%>
+      <%= form.text_area :content , class: "form-control",  required: true %>
+    </div>
+  
+    <div class="field mb-2">
+      <%= form.label :image, class: "form-label" %>
+      <%= form.file_field :image, class: "form-control" %>
+    </div>
+   
+    <div class="field mb-2">
+      <%= form.label :published_at, class: "form-label"%>
+      <%= form.datetime_select :published_at, class: "form-control" %>
+    </div>
+    <div class="field mb-2">
+    <%= link_to 'Back', "/posts", method: "get", class:"btn btn-outline-dark btn-sm me-2"%>
+    <%= form.submit "Create Post", class:"btn btn-primary btn-sm" %>
+    </div>
+    
+  <% end %>
+

@@ -1,0 +1,34 @@
+<h1 class="fs-3">Editing Post</h1>
+
+<%= form_for(@post, url: post_path(@post), local: true) do |form| %>
+    <% if flash.now[:alert] %>
+    <div class="text-danger">
+      <%= flash.now[:alert] %>
+    </div>
+  <% end %>
+    <div class="field mb-2" >
+      <%= form.label :name, "Name",class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
+  
+    <div class="field mb-2">
+      <%= form.label :content , "Content", class: "form-label"%>
+      <%= form.text_area :content ,  oninput: "autoResize(this)", class: "form-control auto-resize-textarea", required: true%>
+    </div>
+     <div>
+     <%= image_tag @post.image , alt: "cover_post", style: "width: 200px; height: 200px;"%>
+
+     </div>
+    <div class="field mb-2">
+       <%= form.label :image, class: "form-label" %>
+       <%= form.file_field :image,  class: "form-control" %>
+    </div>
+    <div class="d-flex">
+        <%= link_to 'Back', "/posts", method: "get", class:"btn btn-outline-dark btn-sm me-2"%>
+        <%= form.submit "Edit Post", class:"btn btn-primary btn-sm" %>
+    </div>
+   
+  <% end %>
+  
+
+  
